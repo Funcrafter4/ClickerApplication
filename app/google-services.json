@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "940467861387",
+    "project_id": "clickerapplication-be9aa",
+    "storage_bucket": "clickerapplication-be9aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940467861387:android:1a01e15352bad5d326618e",
+        "android_client_info": {
+          "package_name": "com.example.android.clickerapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940467861387-0p8ucppdoijf75c3idpa1u5gcb26d6tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFL519SjdYYg8J7PR1D8OFYDo_0EbwjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940467861387-0p8ucppdoijf75c3idpa1u5gcb26d6tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
