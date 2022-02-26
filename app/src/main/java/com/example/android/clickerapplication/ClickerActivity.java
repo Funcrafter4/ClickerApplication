@@ -28,9 +28,9 @@ public class ClickerActivity extends AppCompatActivity {
     private FirebaseUser User;
     private DatabaseReference reference;
     private String UserId;
-    public int currency = 0;
+    public int currency;
     public int n = 1;
-    public int onclickbonus = 0;
+    public int onclickbonus;
 
     private TextView logout, Clicker, currencyTextView, nameTextView, shop;
 
