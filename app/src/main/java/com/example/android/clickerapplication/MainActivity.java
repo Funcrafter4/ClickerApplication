@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView register, login;
+    private TextView banner, login;
 
     private EditText editTextEmail, editTextPassword;
     private FirebaseAuth mAuth;
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        register = (Button) findViewById(R.id.register);
-        register.setOnClickListener(this);
+        banner = (TextView) findViewById(R.id.banner);
+        banner.setOnClickListener(this);
 
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(this);
@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.register:
+            case R.id.banner:
                 startActivity(new Intent(this, RegisterActivity.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
                 break;
             case R.id.login:
                 userLogin();
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     startActivity(new Intent(MainActivity.this, ClickerActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
                 }else{
                     Toast.makeText(MainActivity.this,"Fail to Login",Toast.LENGTH_LONG).show();
                 }

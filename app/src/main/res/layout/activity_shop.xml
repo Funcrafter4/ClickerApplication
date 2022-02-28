@@ -1,138 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center"
     tools:context=".ShopActivity">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_centerHorizontal="true"
+                android:text="Shop page "
+                android:textColor="@color/whiteTextColor" />
+
+        </RelativeLayout>
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="20dp">-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="50dp">-->
+                <TextView
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Currency:"
+                    android:textColor="@color/whiteTextColor" />
 
-<!--            <TextView-->
-<!--                style="@style/viewParent.headerText.NoMode"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:text="Shop page "-->
-<!--                android:textColor="@color/whiteTextColor" />-->
+                <TextView
+                    android:id="@+id/currency"
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/whiteTextColor" />
 
-
-<!--            &lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
-<!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--            &lt;!&ndash;                    android:layout_centerHorizontal="true"&ndash;&gt;-->
-<!--            &lt;!&ndash;                    android:layout_marginTop="30dp"&ndash;&gt;-->
-<!--            &lt;!&ndash;                    android:src="@drawable/ic_register_hero" />&ndash;&gt;-->
-<!--        </RelativeLayout>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            app:cardBackgroundColor="@color/whiteTextColor"-->
-<!--            app:cardCornerRadius="10dp">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:orientation="vertical">-->
-
-
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    style="@style/viewParent.headerText.NoMode"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:hint="Name" />-->
+            </LinearLayout>
 
 
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Income:"
+                    android:textColor="@color/whiteTextColor" />
+
+                <TextView
+                    android:id="@+id/income"
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/whiteTextColor" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bonus:"
+                    android:textColor="@color/whiteTextColor" />
+
+                <TextView
+                    android:id="@+id/onclickbonus"
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/whiteTextColor" />
+
+            </LinearLayout>
 
 
 
-<!--                <androidx.appcompat.widget.AppCompatButton-->
-<!--                    android:id="@+id/cirRegisterButton"-->
-<!--                    style="@style/loginButton"-->
-<!--                    android:layout_width="175dp"-->
-<!--                    android:layout_gravity="end|center_horizontal"-->
-<!--                    android:layout_marginTop="@dimen/loginViewsMargin"-->
-<!--                    android:text="BUY" />-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/whiteTextColor"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
 
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            app:cardBackgroundColor="@color/whiteTextColor"-->
-<!--            app:cardCornerRadius="10dp">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:orientation="vertical">-->
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:hint="Upgrade-1: currency - 10"
+                    android:textColor="@color/black" />
 
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    style="@style/viewParent.headerText.NoMode"-->
-<!--                    android:textColor="@color/whiteTextColor"-->
-<!--                    android:hint="Name" />-->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updarade1"
+                    style="@style/loginButton"
+                    android:layout_width="175dp"
+                    android:layout_gravity="end|center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="+1 bonus" />
 
 
 
 
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/whiteTextColor"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
 
-<!--                <androidx.appcompat.widget.AppCompatButton-->
-<!--                    style="@style/loginButton"-->
-<!--                    android:layout_width="175dp"-->
-<!--                    android:layout_gravity="end|center_horizontal"-->
-<!--                    android:layout_marginTop="@dimen/loginViewsMargin"-->
-<!--                    android:text="BUY" />-->
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:hint="Upgrade-2: currency - 10"
+                    android:textColor="@color/whiteTextColor" />
 
 
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updarade2"
+                    style="@style/loginButton"
+                    android:layout_width="175dp"
+                    android:layout_gravity="end|center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="+1 income" />
 
 
-<!--    </LinearLayout>-->
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-<!--    <View-->
-<!--        android:layout_width="11dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:background="@drawable/ic_side_bg" />-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/whiteTextColor"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
 
-<!--    <ImageView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginLeft="11dp"-->
-<!--        android:layout_marginRight="11dp"-->
-<!--        android:layout_marginBottom="80dp"-->
-<!--        android:adjustViewBounds="false"-->
-<!--        android:onClick="onMainClick"-->
-<!--        android:src="@drawable/ic_back_img2" />-->
-</RelativeLayout>
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:hint="Upgrade-3: currency - 100"
+                    android:textColor="@color/whiteTextColor" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updarade3"
+                    style="@style/loginButton"
+                    android:layout_width="175dp"
+                    android:layout_gravity="end|center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="+10 income" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/whiteTextColor"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:hint="Upgrade-4: currency - 500"
+                    android:textColor="@color/whiteTextColor" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updarade4"
+                    style="@style/loginButton"
+                    android:layout_width="175dp"
+                    android:layout_gravity="end|center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="+25 bonus" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_side_bg" />
+
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="80dp"
+        android:adjustViewBounds="false"
+        android:onClick="onClick"
+        android:src="@drawable/ic_back_img2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

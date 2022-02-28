@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView banner, register;
+
+    private ImageView back;
 
     private EditText editTextName, editTextEmail, editTextPassword;
 
@@ -38,6 +41,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register = (Button) findViewById(R.id.register);
         register.setOnClickListener(this);
 
+        back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(this);
+
         editTextName = (EditText) findViewById(R.id.Name);
         editTextEmail = (EditText) findViewById(R.id.Email);
         editTextPassword = (EditText) findViewById(R.id.Password);
@@ -49,7 +55,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.banner:
+            case R.id.back:
                 startActivity(new Intent(this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
                 break;
             case R.id.register:
                 register();

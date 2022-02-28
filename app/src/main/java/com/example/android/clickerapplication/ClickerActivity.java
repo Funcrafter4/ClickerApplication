@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,9 @@ public class ClickerActivity extends AppCompatActivity {
     public int n = 1;
     public int onclickbonus;
 
-    private TextView logout, Clicker, currencyTextView, nameTextView, shop;
+    private TextView logout, Clicker, currencyTextView, nameTextView;
+
+    private ImageView shop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,7 @@ public class ClickerActivity extends AppCompatActivity {
         User = FirebaseAuth.getInstance().getCurrentUser();
         UserId = User.getUid();
         getDataFromDataBase(UserId);
-        Clicker = (Button) findViewById(R.id.Clicker);
+        Clicker = (Button) findViewById(R.id.clicker);
         Clicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,17 +60,18 @@ public class ClickerActivity extends AppCompatActivity {
                 reference.child(UserId).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                     @Override
                     public void onSuccess(Object o) {
-                        Toast.makeText(Clicker.this,"Updated",Toast.LENGTH_LONG).show();
+                        Toast.makeText(ClickerActivity.this,"Updated",Toast.LENGTH_LONG).show();
                     }
                 });
             }
         });
-        shop =(Button) findViewById(R.id.shop);
+        shop =(ImageView) findViewById(R.id.shop);
 
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ClickerActivity.this, ShopActivity.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
             }
         });
         logout = (Button) findViewById(R.id.logout);
@@ -77,6 +81,7 @@ public class ClickerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(ClickerActivity.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
 
@@ -93,7 +98,7 @@ public class ClickerActivity extends AppCompatActivity {
                 String onclickbonusstr = snapshot.child("onclickbonus").getValue().toString();
                 onclickbonus = Integer.parseInt(onclickbonusstr);
                 String namestr = snapshot.child("name").getValue().toString();
-                nameTextView.setText(namestr);
+                nameTextView.setText(namestr + "!");
             }
 
             @Override

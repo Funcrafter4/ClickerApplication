@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,8 @@ public class ShopActivity extends AppCompatActivity {
     private String UserId;
     public int onclickbonus, income, currency;
 
-    private TextView Upgrade1, Upgrade2, Upgrade3, Upgrade4, Back, currencyTextView, incomeTextView, onclickbonusTextView;
+    private TextView Upgrade1, Upgrade2, Upgrade3, Upgrade4, currencyTextView, incomeTextView, onclickbonusTextView;
+    private ImageView Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +46,13 @@ public class ShopActivity extends AppCompatActivity {
         UserId = User.getUid();
         getDataFromDataBase(UserId);
 
-        Back = (Button) findViewById(R.id.back);
+        Back = (ImageView) findViewById(R.id.back);
 
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ShopActivity.this, ClickerActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
         Upgrade1 = (Button) findViewById(R.id.updarade1);
@@ -153,12 +156,12 @@ public class ShopActivity extends AppCompatActivity {
                 String currencystr = snapshot.child("currency").getValue().toString();
                 currencyTextView.setText(currencystr);
                 currency = Integer.parseInt(currencystr);
-                String onclickbonusstr = snapshot.child("onclickbonus").getValue().toString();
-                onclickbonus = Integer.parseInt(onclickbonusstr);
-                onclickbonusTextView.setText(onclickbonusstr);
-                String incomestr = snapshot.child("income").getValue().toString();
-                income = Integer.parseInt(incomestr);
-                incomeTextView.setText(incomestr);
+//                String onclickbonusstr = snapshot.child("bonus").getValue().toString();
+//                onclickbonus = Integer.parseInt(onclickbonusstr);
+//                onclickbonusTextView.setText(onclickbonusstr);
+//                String incomestr = snapshot.child("income").getValue().toString();
+//                income = Integer.parseInt(incomestr);
+//                incomeTextView.setText(incomestr);
             }
 
             @Override
