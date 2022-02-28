@@ -22,11 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.HashMap;
-import java.util.Timer;
 
 
 public class ClickerActivity extends AppCompatActivity {
-    Timer timer;
     private FirebaseUser User;
     private DatabaseReference reference;
     private String UserId;
@@ -97,7 +95,6 @@ public class ClickerActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
-        //setTimer();
 
     }
 
@@ -119,9 +116,5 @@ public class ClickerActivity extends AppCompatActivity {
 
             }
         });
-    }
-    public void setTimer(){
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new RepeatedTask(),500, 10000);
     }
 }
