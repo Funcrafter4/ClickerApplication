@@ -52,7 +52,6 @@ public class ShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ShopActivity.this, ClickerActivity.class));
-                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
         Upgrade1 = (Button) findViewById(R.id.updarade1);
@@ -156,12 +155,12 @@ public class ShopActivity extends AppCompatActivity {
                 String currencystr = snapshot.child("currency").getValue().toString();
                 currencyTextView.setText(currencystr);
                 currency = Integer.parseInt(currencystr);
-//                String onclickbonusstr = snapshot.child("bonus").getValue().toString();
-//                onclickbonus = Integer.parseInt(onclickbonusstr);
-//                onclickbonusTextView.setText(onclickbonusstr);
-//                String incomestr = snapshot.child("income").getValue().toString();
-//                income = Integer.parseInt(incomestr);
-//                incomeTextView.setText(incomestr);
+                String onclickbonusstr = snapshot.child("onclickbonus").getValue().toString();
+                onclickbonus = Integer.parseInt(onclickbonusstr);
+                onclickbonusTextView.setText(onclickbonusstr);
+                String incomestr = snapshot.child("income").getValue().toString();
+                income = Integer.parseInt(incomestr);
+                incomeTextView.setText(incomestr);
             }
 
             @Override

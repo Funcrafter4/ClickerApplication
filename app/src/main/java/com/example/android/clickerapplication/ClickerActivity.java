@@ -22,19 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.HashMap;
+import java.util.Timer;
 
 
 public class ClickerActivity extends AppCompatActivity {
-
+    Timer timer;
     private FirebaseUser User;
     private DatabaseReference reference;
     private String UserId;
-    public int currency;
+    public int currency = 0;
     public int n = 1;
     public int onclickbonus;
 
     private TextView logout, Clicker, currencyTextView, nameTextView;
-
     private ImageView shop;
 
     @Override
@@ -43,17 +43,28 @@ public class ClickerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clicker);
         currencyTextView =(TextView) findViewById(R.id.currency);
         nameTextView =(TextView) findViewById(R.id.name);
-
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
         User = FirebaseAuth.getInstance().getCurrentUser();
         UserId = User.getUid();
         getDataFromDataBase(UserId);
+
         Clicker = (Button) findViewById(R.id.clicker);
         Clicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currency = currency + n + onclickbonus;
-                currencyTextView.setText(String.valueOf(currency));
+                reference.child(UserId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String currencystr = snapshot.child("currency").getValue().toString();
+                        currency = Integer.parseInt(currencystr) + n + onclickbonus;
+                        currencyTextView.setText(currencystr);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 HashMap hashMap = new HashMap();
                 hashMap.put("currency", currency);
 
@@ -65,13 +76,13 @@ public class ClickerActivity extends AppCompatActivity {
                 });
             }
         });
-        shop =(ImageView) findViewById(R.id.shop);
+
+        shop = (ImageView) findViewById(R.id.shop);
 
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ClickerActivity.this, ShopActivity.class));
-                overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
             }
         });
         logout = (Button) findViewById(R.id.logout);
@@ -79,12 +90,12 @@ public class ClickerActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //timer.cancel();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(ClickerActivity.this, MainActivity.class));
-                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
-
+        //setTimer();
 
     }
 
@@ -98,7 +109,7 @@ public class ClickerActivity extends AppCompatActivity {
                 String onclickbonusstr = snapshot.child("onclickbonus").getValue().toString();
                 onclickbonus = Integer.parseInt(onclickbonusstr);
                 String namestr = snapshot.child("name").getValue().toString();
-                nameTextView.setText(namestr + "!");
+                nameTextView.setText(namestr);
             }
 
             @Override
@@ -106,5 +117,9 @@ public class ClickerActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void setTimer(){
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new RepeatedTask(),500, 10000);
     }
 }
