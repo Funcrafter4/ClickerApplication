@@ -83,6 +83,7 @@ public class ClickerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ClickerActivity.this, ShopActivity.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
             }
         });
         logout = (Button) findViewById(R.id.logout);
@@ -93,6 +94,7 @@ public class ClickerActivity extends AppCompatActivity {
                 //timer.cancel();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(ClickerActivity.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
         //setTimer();

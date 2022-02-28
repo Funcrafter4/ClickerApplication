@@ -52,6 +52,7 @@ public class ShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ShopActivity.this, ClickerActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
         Upgrade1 = (Button) findViewById(R.id.updarade1);
