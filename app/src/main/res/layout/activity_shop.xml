@@ -231,7 +231,7 @@
                     android:layout_width="175dp"
                     android:layout_gravity="end|center_horizontal"
                     android:layout_marginTop="@dimen/loginViewsMargin"
-                    android:text="+25 bonus" />
+                    android:text="+25 income" />
 
 
             </LinearLayout>
